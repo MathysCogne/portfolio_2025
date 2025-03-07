@@ -1,11 +1,19 @@
 import fs from 'fs'
 import path from 'path'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 type Metadata = {
   title: string
   publishedAt: string
   summary: string
   image?: string
+}
+
+type Post = {
+  metadata: Metadata
+  slug: string
+  content: string
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -26,31 +34,49 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content }
 }
 
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
-function readMDXFile(filePath) {
+async function readMDXFile(filePath: string) {
   let rawContent = fs.readFileSync(filePath, 'utf-8')
-  return parseFrontmatter(rawContent)
+  let { metadata, content } = parseFrontmatter(rawContent)
+  
+  // Convert MDX to HTML
+  const processedContent = await remark()
+    .use(html)
+    .process(content)
+  
+  const contentHtml = processedContent.toString()
+  
+  return { metadata, content: contentHtml }
 }
 
-function getMDXData(dir) {
+async function getMDXData(dir: string): Promise<Post[]> {
   let mdxFiles = getMDXFiles(dir)
-  return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file))
-    let slug = path.basename(file, path.extname(file))
-
-    return {
+  const posts: Post[] = []
+  
+  for (const file of mdxFiles) {
+    const { metadata, content } = await readMDXFile(path.join(dir, file))
+    const slug = path.basename(file, path.extname(file))
+    
+    posts.push({
       metadata,
       slug,
       content,
-    }
-  })
+    })
+  }
+  
+  return posts
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+export async function getBlogPosts(): Promise<Post[]> {
+  try {
+    return await getMDXData(path.join(process.cwd(), 'app', 'blog', '_posts'))
+  } catch (error) {
+    console.error('Error loading blog posts:', error)
+    return []
+  }
 }
 
 export function formatDate(date: string, includeRelative = false) {
