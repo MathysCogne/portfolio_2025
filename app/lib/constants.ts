@@ -55,6 +55,7 @@ export const texts = {
     buttonText: "Retour à la terre ferme"
   },
   resume: {
+    beforetitle: "Mon",
     title: "Parcours",
     subtitle: "De l'expérience terrain à l'expertise technique",
     experience: {
@@ -132,7 +133,7 @@ export const texts = {
   },
   projects: {
     title: "Mes Projets",
-    subtitle: "Innovation et créativité au service du web3",
+    subtitle: "Innovation et créativité",
     features: "Fonctionnalités",
     technicalDetails: "Détails Techniques",
     viewMore: "Voir plus",
@@ -312,7 +313,8 @@ export const texts = {
       buttonText: "Back to solid ground"
     },
     resume: {
-      title: "Journey",
+      beforetitle: "My",
+      title: "Resume",
       subtitle: "From field experience to technical expertise",
       experience: {
         title: "My Professional Journey",
@@ -389,7 +391,7 @@ export const texts = {
     },
     projects: {
       title: "My Projects",
-      subtitle: "Innovation and creativity in web3",
+      subtitle: "Innovation and creativity",
       features: "Features",
       technicalDetails: "Technical Details",
       viewMore: "View more",

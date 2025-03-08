@@ -22,7 +22,7 @@ export function Resume() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-balance leading-none tracking-tighter">
-            Mon <LineShadowText className="italic" shadowColor="#8FFFFF">{t.resume.title}</LineShadowText>
+           {t.resume.beforetitle} <LineShadowText className="italic" shadowColor="#8FFFFF">{t.resume.title}</LineShadowText>
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}

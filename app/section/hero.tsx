@@ -51,6 +51,52 @@ export function Hero() {
         >
           {t.hero.description2}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.9,
+            duration: 0.8,
+            ease: 'easeInOut',
+          }}
+          className="mt-16"
+        >
+          <motion.button
+            onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth',
+              })
+            }}
+            whileHover={{ y: 5 }}
+            className="group flex flex-col items-center gap-2"
+          >
+
+            <motion.div
+              animate={{
+                y: [0, 4, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <svg
+                className="h-6 w-6 text-slate-400 transition-colors group-hover:text-slate-300"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </motion.div>
+          </motion.button>
+        </motion.div>
       </div>
     </LampContainer>
   )

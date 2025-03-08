@@ -2,14 +2,21 @@ import { Hero } from './section/hero'
 import { Resume } from './section/resume'
 import { Projects } from './section/projects'
 import { Hackathons } from './section/hackathons'
+import { LazySection } from './components/LazySection'
 
 export default function Page() {
   return (
     <section>
       <Hero />
-      <Resume />
-      <Projects />
-      <Hackathons />
+      <LazySection>
+        <Resume />
+      </LazySection>
+      {/* <LazySection> */}
+        <Projects />
+      {/* </LazySection> */}
+      <LazySection>
+        <Hackathons />
+      </LazySection>
     </section>
   )
 }
