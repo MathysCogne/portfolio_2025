@@ -2,6 +2,10 @@ import { getBlogPosts } from '@/blog/_lib/blog'
 
 export const baseUrl = 'https://www.mathys-cognefoucault.fr/'
 
+// Force le rendu statique de cette route
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export default async function sitemap() {
   let posts = await getBlogPosts()
 

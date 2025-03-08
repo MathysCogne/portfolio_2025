@@ -1,6 +1,10 @@
 import { baseUrl } from '@/sitemap'
 import { getBlogPosts } from '@/blog/_lib/blog'
 
+// Force le rendu statique de cette route API
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export async function GET() {
   let allBlogs = await getBlogPosts()
 

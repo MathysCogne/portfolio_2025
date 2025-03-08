@@ -1,8 +1,16 @@
 import { ImageResponse } from 'next/og'
 
-export function GET(request: Request) {
-  let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'Mathys Cogne-Foucault - Portfolio'
+// Force le rendu statique de cette route API
+export const dynamic = 'force-static'
+export const revalidate = false
+
+// Définir les paramètres statiques pour cette route
+export function generateStaticParams() {
+  return [{ title: 'Mathys Cogne-Foucault - Portfolio' }]
+}
+
+export function GET() {
+  const title = 'Mathys Cogne-Foucault - Portfolio'
 
   return new ImageResponse(
     (
