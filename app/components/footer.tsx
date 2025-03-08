@@ -4,14 +4,16 @@ import { MorphingText } from '@/ui/morphing-text'
 import { WavyBackground } from '@/ui/wavy-background'
 import { getTexts } from '@/lib/constants'
 import { useLanguage } from '@/components/LanguageProvider'
+import { useIsFirefox } from '@/lib/hooks/useIsFirefox'
 
 export default function Footer() {
   const { currentLang } = useLanguage()
   const t = getTexts(currentLang)
   const morphingTexts = [...t.footer.morphingTexts]
-
+  const isFirefox = useIsFirefox()
   return (
     <footer className="relative mt-12 overflow-hidden">
+      {!isFirefox && (
       <WavyBackground 
         className="w-full px-4"
         containerClassName="relative w-full h-auto min-h-[50vh] flex flex-col items-center justify-center"
@@ -28,7 +30,10 @@ export default function Footer() {
           </div>
         </div>
       </WavyBackground>
-
+      )}
+      {isFirefox && (
+        <MorphingText texts={morphingTexts} className="text-4xl md:text-5xl lg:text-7xl" />
+      )}
       <div className="min-h-[8vh]"></div>
     </footer>
   )

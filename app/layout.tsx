@@ -9,6 +9,7 @@ import { baseUrl } from '@/sitemap'
 import { texts } from '@/lib/constants'
 import { LanguageProvider } from '@/components/LanguageProvider'
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
