@@ -1,10 +1,42 @@
 import { BlogPosts } from './_components/posts'
 import { texts } from '@/lib/constants'
 import { SparklesText } from '@/ui/sparkles-text'
+import { Metadata } from 'next'
+import { baseUrl } from '@/sitemap'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: texts.blog.title,
   description: texts.blog.description,
+  keywords: "blog tech, développement web, blockchain, web3, intelligence artificielle, tutoriels, programmation, développeur, Mathys Cogné Foucault",
+  openGraph: {
+    title: texts.blog.title,
+    description: texts.blog.description,
+    url: `${baseUrl}/blog`,
+    type: texts.metadata.siteType,
+    siteName: texts.metadata.authorName,
+    locale: texts.metadata.siteLocale,
+    images: [
+      {
+        url: `${baseUrl}/api/og?title=${encodeURIComponent(texts.blog.title)}&subtitle=${encodeURIComponent(texts.blog.description.substring(0, 50) + '...')}&type=blog`,
+        width: 1200,
+        height: 630,
+        alt: texts.blog.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: texts.blog.title,
+    description: texts.blog.description,
+    creator: texts.metadata.twitterHandle,
+    images: [
+      `${baseUrl}/api/og?title=${encodeURIComponent(texts.blog.title)}&subtitle=${encodeURIComponent(texts.blog.description.substring(0, 50) + '...')}&type=blog`,
+    ],
+  },
+  authors: [{ name: texts.metadata.authorName }],
+  alternates: {
+    canonical: `${baseUrl}/blog`,
+  },
 }
 
 export default async function Page() {

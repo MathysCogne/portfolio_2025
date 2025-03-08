@@ -14,6 +14,9 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = withMDX(nextConfig) 

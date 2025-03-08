@@ -7,21 +7,31 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from '@/components/footer'
 import { baseUrl } from '@/sitemap'
+import { texts } from '@/lib/constants'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Mathys Cogné Foucault - Developpeur | Blog and Portfolio',
-    template: '%s | Mathys Cogné Foucault - Developpeur | Blog and Portfolio',
+    default: texts.metadata.siteTitle,
+    template: `%s | ${texts.metadata.siteTitle}`,
   },
-  description: 'Mathys Cogné Foucault - Developpeur | Blog and Portfolio',
+  description: texts.metadata.siteDescription,
+  keywords: texts.metadata.siteKeywords,
   openGraph: {
-    title: 'Portfolio Mathys Cogné Foucault',
-    description: 'Mathys Cogné Foucault - Developpeur | Blog and Portfolio',
+    title: texts.metadata.siteTitle,
+    description: texts.metadata.siteDescription,
     url: baseUrl,
-    siteName: 'Mathys Cogné Foucault',
-    locale: 'fr-FR',
-    type: 'website',
+    siteName: texts.metadata.authorName,
+    locale: texts.metadata.siteLocale,
+    type: texts.metadata.siteType,
+    images: [
+      {
+        url: `${baseUrl}/api/og?title=${encodeURIComponent(texts.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
+        width: 1200,
+        height: 630,
+        alt: texts.metadata.siteTitle,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -35,11 +45,22 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Mathys Cogné Foucault - Developpeur | Blog and Portfolio',
+    title: texts.metadata.siteTitle,
     card: 'summary_large_image',
+    description: texts.metadata.siteDescription,
+    creator: texts.metadata.twitterHandle,
+    images: [
+      `${baseUrl}/api/og?title=${encodeURIComponent(texts.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
+    ],
   },
   verification: {
     google: 'google-site-verification',
+  },
+  authors: [{ name: texts.metadata.authorName }],
+  creator: texts.metadata.authorName,
+  category: texts.metadata.siteCategory,
+  alternates: {
+    canonical: baseUrl,
   },
 }
 

@@ -8,6 +8,7 @@ type Metadata = {
   publishedAt: string
   summary: string
   image?: string
+  tags?: string[]
 }
 
 type Post = {
@@ -28,7 +29,23 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    
+    // Gestion spéciale pour les tags qui doivent être un tableau
+    if (key.trim() === 'tags') {
+      // Si la valeur est entre crochets, on la parse comme un tableau
+      if (value.startsWith('[') && value.endsWith(']')) {
+        const tagsString = value.slice(1, -1)
+        metadata.tags = tagsString
+          .split(',')
+          .map(tag => tag.trim())
+          .filter(tag => tag.length > 0)
+      } else {
+        metadata.tags = value ? [value] : []
+      }
+    } else {
+      // Pour les autres champs, on garde le comportement normal
+      metadata[key.trim() as keyof Metadata] = value as any
+    }
   })
 
   return { metadata: metadata as Metadata, content }
@@ -70,47 +87,16 @@ async function getMDXData(dir: string): Promise<Post[]> {
   return posts
 }
 
-export async function getBlogPosts(): Promise<Post[]> {
-  try {
-    return await getMDXData(path.join(process.cwd(), 'app', 'blog', '_posts'))
-  } catch (error) {
-    console.error('Error loading blog posts:', error)
-    return []
+export function formatDate(date: string, includeYear = false) {
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'long',
+    ...(includeYear && { year: 'numeric' }),
   }
+  return new Date(date).toLocaleDateString('fr-FR', options)
 }
 
-export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date()
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`
-  }
-  let targetDate = new Date(date)
-
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
-
-  let formattedDate = ''
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
-    formattedDate = 'Today'
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-
-  if (!includeRelative) {
-    return fullDate
-  }
-
-  return `${fullDate} (${formattedDate})`
+export async function getBlogPosts() {
+  const postsDirectory = path.join(process.cwd(), 'app', 'blog', '_posts')
+  return getMDXData(postsDirectory)
 }

@@ -4,6 +4,7 @@ import { baseUrl } from '@/sitemap';
 import { SparklesText } from '@/ui/sparkles-text';
 import Image from 'next/image';
 import Link from 'next/link';
+import { texts } from '@/lib/constants';
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -27,14 +28,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     publishedAt: publishedTime,
     summary: description,
     image,
+    tags,
   } = post.metadata;
+  
+  // Générer l'URL de l'image OG
   const ogImage = image
-    ? image
-    : `${baseUrl}/api/og?title=${encodeURIComponent(title)}`;
+    ? image // Utiliser l'image spécifiée dans le frontmatter si elle existe
+    : `${baseUrl}/api/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(description.substring(0, 50) + '...')}&type=blog`;
+
+  // Créer des mots-clés à partir des tags ou utiliser des mots-clés par défaut
+  const defaultKeywords = ["blog", texts.metadata.authorName, "développeur web3", "article tech", "blockchain", "IA"];
+  const keywordsList = tags ? [...tags, ...defaultKeywords] : defaultKeywords;
+  const keywordsString = keywordsList.join(", ");
 
   return {
     title,
     description,
+    keywords: keywordsString,
     openGraph: {
       title,
       description,
@@ -44,6 +54,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [
         {
           url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `Image pour l'article: ${title}`,
         },
       ],
     },
@@ -52,6 +65,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description,
       images: [ogImage],
+      creator: texts.metadata.twitterHandle,
+    },
+    authors: [{ name: texts.metadata.authorName }],
+    alternates: {
+      canonical: `${baseUrl}/blog/${post.slug}`,
     },
   };
 }

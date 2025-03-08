@@ -29,6 +29,16 @@ export type Event = {
 }
 
 export const texts = {
+  metadata: {
+    siteTitle: "Mathys Cogné Foucault - Développeur | Portfolio",
+    siteDescription: "Développeur Web3 & IA spécialisé en blockchain, React, TypeScript et Next.js. Étudiant à 42, passionné par l'innovation technologique et les hackathons. Découvrez mes projets et compétences.",
+    siteKeywords: "développeur web3, blockchain, intelligence artificielle, React, TypeScript, Next.js, École 42, développeur frontend, portfolio, hackathons, projets tech, cybersécurité, no-code, IA",
+    authorName: "Mathys Cogné Foucault",
+    twitterHandle: "@MathysCF",
+    siteLocale: "fr-FR",
+    siteType: "website",
+    siteCategory: "Technology"
+  },
   hero: {
     title: "Développeur WEB3",
     name: "Mathys Cogné-Foucault",
@@ -215,8 +225,8 @@ export const texts = {
     ]
   },
   blog: {
-    title: "Blog",
-    description: "Read my blog."
+    title: "Blog Tech & Web3",
+    description: "Découvrez mes articles sur le développement web, la blockchain, l'IA et les technologies émergentes. Tutoriels, analyses et retours d'expérience d'un développeur passionné."
   },
   hackathons: {
     title: "Hackathons & Événements",
@@ -269,7 +279,9 @@ export const texts = {
       "Créons l'avenir",
       "Discutons ensemble",
       "Innovons ensemble",
-      "Concrétisons vos idées"
+      "Concrétisons vos idées",
+      "Travaillons ensemble",
+      "Créons l'avenir"
     ]
   }
 } as const; 
