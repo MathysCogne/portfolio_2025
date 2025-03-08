@@ -1,7 +1,8 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { texts, Project, ProjectLink } from '@/lib/constants'
+import { Project, ProjectLink, getTexts } from '@/lib/constants'
+import { useLanguage } from '@/components/LanguageProvider'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useId, useRef, useState } from 'react'
@@ -117,6 +118,8 @@ export function Projects() {
   const [active, setActive] = useState<Project | null>(null)
   const ref = useRef<HTMLDivElement>(null)
   const id = useId()
+  const { currentLang } = useLanguage()
+  const t = getTexts(currentLang)
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -142,7 +145,7 @@ export function Projects() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-balance leading-none tracking-tighter">
-            <SparklesText text={texts.projects.title} className="text-slate-200" />
+            <SparklesText text={t.projects.title} className="text-slate-200" />
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -150,7 +153,7 @@ export function Projects() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mt-4 text-slate-400 text-lg"
           >
-            {texts.projects.subtitle}
+            {t.projects.subtitle}
           </motion.p>
         </div>
 
@@ -170,7 +173,6 @@ export function Projects() {
           whileInView="animate"
           viewport={{ once: true }}
         >
-
           <AnimatePresence>
             {active ? (
               <div className="fixed inset-0 grid place-items-center z-[100] p-4 sm:p-6 md:p-8">
@@ -226,7 +228,7 @@ export function Projects() {
                       <div className="space-y-6 flex-grow">
                         <div>
                           <h4 className="text-base sm:text-lg font-medium text-slate-200 mb-3">
-                            {texts.projects.features}
+                            {t.projects.features}
                           </h4>
                           <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                             {active.expanded.features.map((feature) => (
@@ -243,7 +245,7 @@ export function Projects() {
 
                         <div>
                           <h4 className="text-base sm:text-lg font-medium text-slate-200 mb-3">
-                            {texts.projects.technicalDetails}
+                            {t.projects.technicalDetails}
                           </h4>
                           <p className="text-sm text-slate-400">
                             {active.expanded.technicalDetails}
@@ -288,7 +290,7 @@ export function Projects() {
         </motion.div>
 
         <ul className="grid grid-cols-1 gap-3 sm:gap-4">
-          {texts.projects.items.map((project, index) => (
+          {t.projects.items.map((project: Project, index: number) => (
             <motion.div
               layoutId={`card-${project.title}-${id}`}
               key={project.title}
@@ -321,7 +323,7 @@ export function Projects() {
                   {project.description}
                 </motion.p>
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                  {project.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="px-2 py-1 text-xs bg-blue-500/5 text-blue-400 rounded-full border border-blue-500/10"
@@ -336,7 +338,7 @@ export function Projects() {
                 layoutId={`button-${project.title}-${id}`}
                 className="hidden sm:flex items-center gap-2 flex-shrink-0 px-4 py-2 text-sm rounded-full font-medium bg-slate-700/50 text-slate-300 group-hover:bg-blue-500/10 group-hover:text-blue-400 transition-colors border border-transparent group-hover:border-blue-500/20"
               >
-                <span>{texts.projects.viewMore}</span>
+                <span>{t.projects.viewMore}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

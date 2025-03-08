@@ -2,11 +2,13 @@
 
 import { MorphingText } from '@/ui/morphing-text'
 import { WavyBackground } from '@/ui/wavy-background'
-import { texts } from '@/lib/constants'
+import { getTexts } from '@/lib/constants'
+import { useLanguage } from '@/components/LanguageProvider'
 
 export default function Footer() {
-  
-  const morphingTexts = [...texts.footer.morphingTexts]
+  const { currentLang } = useLanguage()
+  const t = getTexts(currentLang)
+  const morphingTexts = [...t.footer.morphingTexts]
 
   return (
     <footer className="relative mt-12 overflow-hidden">

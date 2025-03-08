@@ -4,6 +4,8 @@ export type ProjectLink = {
   readonly icon: 'globe' | 'github' | 'book' | 'chart'
 }
 
+export type Language = 'fr' | 'en'
+
 export type Project = {
   readonly title: string
   readonly description: string
@@ -29,6 +31,7 @@ export type Event = {
 }
 
 export const texts = {
+  fr: {
   metadata: {
     siteTitle: "Mathys Cogné Foucault - Développeur | Portfolio",
     siteDescription: "Développeur Web3 & IA spécialisé en blockchain, React, TypeScript et Next.js. Étudiant à 42, passionné par l'innovation technologique et les hackathons. Découvrez mes projets et compétences.",
@@ -40,7 +43,7 @@ export const texts = {
     siteCategory: "Technology"
   },
   hero: {
-    title: "Développeur WEB3",
+    title: "Développeur Web3",
     name: "Mathys Cogné-Foucault",
     description1: "Étudiant à l'École 42, passionné par les hackathons et les défis innovants. La recherche de solutions créatives et l'exploration des frontières technologiques.",
     description2: "Spécialisé en Web3 et IA, je m'épanouis dans l'univers de la blockchain, de l'intelligence artificielle et de la cybersécurité."
@@ -284,4 +287,266 @@ export const texts = {
       "Créons l'avenir"
     ]
   }
-} as const; 
+  },
+  en: {
+    metadata: {
+      siteTitle: "Mathys Cogné Foucault - Developer | Portfolio",
+      siteDescription: "Web3 & AI Developer specialized in blockchain, React, TypeScript, and Next.js. 42 School student, passionate about technological innovation and hackathons. Discover my projects and skills.",
+      siteKeywords: "web3 developer, blockchain, artificial intelligence, React, TypeScript, Next.js, 42 School, frontend developer, portfolio, hackathons, tech projects, cybersecurity, no-code, AI",
+      authorName: "Mathys Cogné Foucault",
+      twitterHandle: "@MathysCF",
+      siteLocale: "en-US",
+      siteType: "website",
+      siteCategory: "Technology"
+    },
+    hero: {
+      title: "Web3 Developer",
+      name: "Mathys Cogné-Foucault",
+      description1: "42 School student, passionate about hackathons and innovative challenges. Always seeking creative solutions and exploring technological boundaries.",
+      description2: "Specialized in Web3 and AI, I thrive in the world of blockchain, artificial intelligence, and cybersecurity."
+    },
+    notFound: {
+      title: "404",
+      heading: "Oops! Looks like you got lost in the metaverse...",
+      description: "Don't panic! Even the best developers get lost sometimes.",
+      buttonText: "Back to solid ground"
+    },
+    resume: {
+      title: "Journey",
+      subtitle: "From field experience to technical expertise",
+      experience: {
+        title: "My Professional Journey",
+        items: [
+          {
+            company: "42Blockchain",
+            role: "Member - Contributor",
+            period: "February 2025 - Present",
+            logo: "/images/companies/42blockchain.svg",
+            url: "https://42blockchain.com/"
+          },
+          {
+            company: "Café Joyeux",
+            role: "Supervisor",
+            period: "November 2024 - Present",
+            logo: "/images/companies/cafe-joyeux.jpeg",
+            url: "https://www.cafejoyeux.com"
+          },
+          {
+            company: "POKAWA",
+            role: "Multi-site Director",
+            period: "March 2021 - April 2023",
+            logo: "/images/companies/pokawa.jpeg",
+            url: "https://pokawa.com"
+          },
+          {
+            company: "Les Burgers de Papa",
+            role: "Deputy Director",
+            period: "August 2020 - March 2021",
+            logo: "/images/companies/burgers-papa.jpeg",
+            url: "https://lesburgersdepapa.fr"
+          },
+          {
+            company: "McDonald's",
+            role: "Operations Manager",
+            period: "October 2017 - August 2020",
+            logo: "/images/companies/mcdonalds.jpeg",
+            url: "https://www.mcdonalds.fr"
+          }
+        ]
+      },
+      education: {
+        title: "My Academic Journey",
+        items: [
+          {
+            school: "42",
+            degree: "Software Engineer",
+            period: "2024 - 2026",
+            logo: "/images/education/42born2code_logo.jpeg",
+            url: "https://42.fr"
+          },
+          {
+            school: "OpenClassrooms",
+            degree: "Front-End Developer",
+            period: "2024",
+            logo: "/images/education/openclassrooms_logo.jpeg",
+            url: "https://openclassrooms.com"
+          }
+        ]
+      },
+      skills: {
+        title: "My Tech Stack",
+        items: [
+          "React JS",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Postgres",
+          "Docker",
+          "C",
+          "C++"
+        ]
+      }
+    },
+    projects: {
+      title: "My Projects",
+      subtitle: "Innovation and creativity in web3",
+      features: "Features",
+      technicalDetails: "Technical Details",
+      viewMore: "View more",
+      items: [
+        {
+          title: "PatcherAI",
+          description: "An intuitive no-code AI agent builder with drag and drop interface. Create and deploy custom AI agents without writing code.",
+          tags: ["React", "TypeScript", "AI", "No-Code", "Drag and Drop", "LLM"],
+          image: "/images/projects/patcherai.webp",
+          links: [
+            { label: "In development", url: "#", icon: "globe" }
+          ],
+          expanded: {
+            features: [
+              "Intuitive drag and drop interface",
+              "No-code AI agent creation",
+              "Complete behavior customization",
+              "Integration with various language models",
+              "Simplified deployment",
+              "Performance monitoring",
+              "Reusable component library"
+            ],
+            technicalDetails: "PatcherAI is developed with React and TypeScript, using a modular architecture to enable visual creation of AI agents. The system uses a component-based approach to assemble different AI capabilities, with an execution engine that translates visual configurations into instructions for LLMs. The user interface is designed to be accessible to non-developers while offering advanced features for experienced users."
+          }
+        },
+        {
+          title: "42 Blockchain Website",
+          description: "Contributing to the development of the official 42 Blockchain association website, a community dedicated to learning and promoting blockchain technologies at École 42.",
+          tags: ["React", "Next.js", "TypeScript", "TailwindCSS", "Web3"],
+          image: "/images/projects/42blockchain.jpeg",
+          links: [
+            { label: "Website", url: "https://42blockchain.com/", icon: "globe" },
+            { label: "GitHub", url: "https://github.com/iceywil/42Blockchain-Website", icon: "github" }
+          ],
+          expanded: {
+            features: [
+              "Modern and responsive interface",
+              "Association events and workshops showcase",
+              "Blockchain educational resources",
+              "Member projects showcase",
+              "Social media integration",
+              "News and blog section"
+            ],
+            technicalDetails: "Website developed with Next.js and TypeScript, using TailwindCSS for styling. The architecture is based on reusable components and a JAMstack approach for optimal performance. The site serves as a showcase for the 42 Blockchain association and facilitates the dissemination of blockchain knowledge within the École 42 community."
+          }
+        },
+        {
+          title: "Cub3D",
+          description: "A project inspired by Wolfenstein 3D, one of the first first-person shooter games. Exploring ray-casting techniques to create a 3D representation of a maze.",
+          tags: ["C", "Ray-casting", "3D", "Game Development", "42 School"],
+          image: "/images/projects/cub3dm.png",
+          links: [
+            { label: "GitHub", url: "https://github.com/MathysCogne/42_Cub3D", icon: "github" }
+          ],
+          expanded: {
+            features: [
+              "3D rendering using ray-casting",
+              "Custom textures and configurable map",
+              "Player movements and interactions",
+              "Mini-map display",
+              "Animated sprites",
+              "Door system",
+              "Complete 360-degree view management",
+              "Mouse interaction for precise targeting and camera control",
+              "Weapons and player stats (Health, stamina...)"
+            ],
+            technicalDetails: "Developed in C, this project implements advanced ray-casting techniques to simulate a 3D environment from a 2D map. The graphics engine handles collisions, textures, lighting, and interactions. The custom .cub map format allows defining textures and maze layout. The implementation includes precise trigonometric calculations for ray projection and wall detection."
+          }
+        },
+        {
+          title: "Philosophers",
+          description: "An implementation of the famous dining philosophers problem, exploring concurrency and synchronization challenges in programming.",
+          tags: ["C", "Threads", "Mutexes", "Processes", "Semaphores", "42 School"],
+          image: "/images/projects/philosophersm.png",
+          links: [
+            { label: "GitHub", url: "https://github.com/MathysCogne/42_Philosophers", icon: "github" },
+            { label: "Wikipedia", url: "https://en.wikipedia.org/wiki/Dining_philosophers_problem", icon: "book" }
+          ],
+          expanded: {
+            features: [
+              "Mandatory version: Threads and Mutexes",
+              "Shared resource management with mutexes",
+              "Multi-thread simulation with one philosopher per thread",
+              "State monitoring and starvation detection",
+              "Bonus version: Processes and Semaphores",
+              "Multi-process simulation with independent philosophers",
+              "Efficient synchronization with semaphores",
+              "Centralized monitoring by parent process"
+            ],
+            technicalDetails: "This project addresses the classic challenge of shared resource management in computer science. The main version uses threads and mutexes to synchronize fork access between philosophers, avoiding deadlocks while precisely monitoring timestamps. The bonus version implements the same simulation with separate processes and semaphores, demonstrating a different approach to synchronization and inter-process communication. Both versions require precise time management to detect when a philosopher dies of starvation."
+          }
+        }
+      ]
+    },
+    blog: {
+      title: "Tech & Web3 Blog",
+      description: "Discover my articles about web development, blockchain, AI, and emerging technologies. Tutorials, analyses, and experience feedback from a passionate developer."
+    },
+    hackathons: {
+      title: "Hackathons & Events",
+      subtitle: "My adventures in the world of technological challenges",
+      events: [
+        {
+          title: "ETHGlobal Cannes Hackathon",
+          date: "July 2025",
+          description: "## ETH Global Cannes\n\n **Coming soon** \n\n.\n\n.\n\n.\n\n.",
+          tags: ["ETH", "Web3"],
+          link: {
+            url: "https://ethglobal.com/events/cannes",
+            label: "Event website"
+          }
+        },
+        {
+          title: "Paris Blockchain Week",
+          date: "April 2025",
+          description: "## Paris Blockchain Week Hackathon\n\n **Coming soon** \n\n.\n\n.\n\n.\n\n.",
+          tags: ["XRPL", "Solana", "Web3"],
+          link: {
+            url: "https://www.parisblockchainweek.com",
+            label: "Event website"
+          }
+        },
+        {
+          title: "AI Action Summit Hackathon",
+          date: "February 2025",
+          description: "## Doctolib, Paris\n\nWe developed an AI agent to reduce waiting times for health emergency calls (three minutes on average, with peaks of 30 minutes in winter).\n\nOur solution takes over during these waiting periods, collects essential information (name, location, incident description) and guides the caller through first aid steps via an interactive and modular dialogue until the operator takes over.\n\nA great weekend with little sleep with our team \"Les Hackatistes du Dimanche\" at Doctolib's offices.",
+          tags: ["AI", "Healthcare", "AI Agent", "Emergency"],
+          link: {
+            url: "https://github.com/MathysCogne/Hackathon_AI-Action-Summit_2025",
+            label: "View project"
+          }
+        },
+        {
+          title: "Kiln Hackathon",
+          date: "January 2025",
+          description: "## 🏆  Kiln, Paris\n\n **2nd place** in the Kiln Connect category with our team \"Les Hackatistes du Dimanche\". \n\n We developed an AI Agent connected in real-time to Kiln's API to facilitate access to blockchain data.\n\nOur solution vectorizes user queries, determines the most relevant API call, enriches the retrieved data, and transmits it to an LLM with a dynamic pre-prompt.\n\nThe tool provides accurate and up-to-date blockchain insights: reward tracking, validator status, wallet analysis, and more.\n\n",
+          tags: ["AI", "Blockchain", "LLM", "Kiln"],
+          link: {
+            url: "https://github.com/MathysCogne/hackathon_kiln",
+            label: "View project"
+          }
+        }
+      ]
+    },
+    footer: {
+      morphingTexts: [
+        "Let's create the future",
+        "Let's discuss together",
+        "Let's innovate together",
+        "Let's bring your ideas to life",
+        "Let's work together",
+        "Let's create the future"
+      ]
+    }
+  }
+} as const
+
+export function getTexts(lang: Language) {
+  return texts[lang]
+} 

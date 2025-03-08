@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : `${baseUrl}/api/og?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(description.substring(0, 50) + '...')}&type=blog`;
 
   // Créer des mots-clés à partir des tags ou utiliser des mots-clés par défaut
-  const defaultKeywords = ["blog", texts.metadata.authorName, "développeur web3", "article tech", "blockchain", "IA"];
+  const defaultKeywords = ["blog", texts.fr.metadata.authorName, "développeur web3", "article tech", "blockchain", "IA"];
   const keywordsList = tags ? [...tags, ...defaultKeywords] : defaultKeywords;
   const keywordsString = keywordsList.join(", ");
 
@@ -65,9 +65,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description,
       images: [ogImage],
-      creator: texts.metadata.twitterHandle,
+      creator: texts.fr.metadata.twitterHandle,
     },
-    authors: [{ name: texts.metadata.authorName }],
+    authors: [{ name: texts.fr.metadata.authorName }],
     alternates: {
       canonical: `${baseUrl}/blog/${post.slug}`,
     },

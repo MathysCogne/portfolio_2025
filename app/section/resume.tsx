@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { texts } from '@/lib/constants'
+import { getTexts } from '@/lib/constants'
+import { useLanguage } from '@/components/LanguageProvider'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LineShadowText } from '@/ui/line-shadow-text'
@@ -13,12 +14,15 @@ const fadeInUp = {
 }
 
 export function Resume() {
+  const { currentLang } = useLanguage()
+  const t = getTexts(currentLang)
+
   return (
     <section className="py-24">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-balance leading-none tracking-tighter">
-            Mon <LineShadowText className="italic" shadowColor="#8FFFFF">{texts.resume.title}</LineShadowText>
+            Mon <LineShadowText className="italic" shadowColor="#8FFFFF">{t.resume.title}</LineShadowText>
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -26,7 +30,7 @@ export function Resume() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mt-4 text-slate-400 text-lg"
           >
-            {texts.resume.subtitle}
+            {t.resume.subtitle}
           </motion.p>
         </div>
 
@@ -41,10 +45,10 @@ export function Resume() {
             {...fadeInUp}
             className="text-m font-medium text-slate-200 mb-8 bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent"
           >
-            {texts.resume.experience.title}
+            {t.resume.experience.title}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {texts.resume.experience.items.map((item, index) => (
+            {t.resume.experience.items.map((item, index) => (
               <Link 
                 href={item.url}
                 target="_blank"
@@ -88,10 +92,10 @@ export function Resume() {
             {...fadeInUp}
             className="text-m font-medium text-slate-200 mb-8 bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent"
           >
-            {texts.resume.education.title}
+            {t.resume.education.title}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {texts.resume.education.items.map((item, index) => (
+            {t.resume.education.items.map((item, index) => (
               <Link 
                 href={item.url}
                 target="_blank"
@@ -134,13 +138,13 @@ export function Resume() {
             {...fadeInUp}
             className="text-m font-medium text-slate-200 mb-8 bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent"
           >
-            {texts.resume.skills.title}
+            {t.resume.skills.title}
           </motion.h2>
           <motion.div 
             {...fadeInUp}
             className="flex flex-wrap gap-2"
           >
-            {texts.resume.skills.items.map((skill, index) => (
+            {t.resume.skills.items.map((skill, index) => (
               <motion.span
                 key={skill}
                 initial={{ opacity: 0, scale: 0.9 }}

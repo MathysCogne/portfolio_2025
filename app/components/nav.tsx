@@ -12,6 +12,8 @@ import {
   TooltipTrigger,
 } from '@/ui/tooltip'
 import { cn } from '@/lib/utils'
+import LanguageSelector from './LanguageSelector'
+import type { Language } from '@/lib/utils/lang'
 
 const navigationLinks = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -44,11 +46,6 @@ const socialLinks = [
     )
   },
   { name: 'Email', href: 'mailto:mathys.cognef@gmail.com', icon: EnvelopeIcon },
-]
-
-const utilityLinks = [
-  { name: 'Theme', href: '#', icon: SunIcon },
-  { name: 'Language', href: '#', icon: LanguageIcon },
 ]
 
 export function Navbar() {
@@ -93,29 +90,35 @@ export function Navbar() {
             <Separator orientation="vertical" className="mx-2 h-8 bg-white/10" />
 
             {/* Social Links */}
-            
-              {socialLinks.map((link) => {
-                const Icon = link.icon
-                return (
-                  <DockIcon key={link.href}>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex h-12 w-12 items-center justify-center text-white/60 transition-colors hover:text-white/80"
-                        >
-                          <Icon />
-                        </a>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{link.name}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </DockIcon>
-                )
-              })}
+            {socialLinks.map((link) => {
+              const Icon = link.icon
+              return (
+                <DockIcon key={link.href}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-12 w-12 items-center justify-center text-white/60 transition-colors hover:text-white/80"
+                      >
+                        <Icon />
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{link.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </DockIcon>
+              )
+            })}
+
+            <Separator orientation="vertical" className="mx-2 h-8 bg-white/10" />
+
+            {/* Language Selector */}
+            <DockIcon>
+              <LanguageSelector />
+            </DockIcon>
             
           </Dock>
         </TooltipProvider>

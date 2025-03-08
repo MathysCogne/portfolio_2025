@@ -3,33 +3,35 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from '@/components/nav'
+import { NavMobile } from '@/components/nav-mobile'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from '@/components/footer'
 import { baseUrl } from '@/sitemap'
 import { texts } from '@/lib/constants'
+import { LanguageProvider } from '@/components/LanguageProvider'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: texts.metadata.siteTitle,
-    template: `%s | ${texts.metadata.siteTitle}`,
+    default: texts.fr.metadata.siteTitle,
+    template: `%s | ${texts.fr.metadata.siteTitle}`,
   },
-  description: texts.metadata.siteDescription,
-  keywords: texts.metadata.siteKeywords,
+  description: texts.fr.metadata.siteDescription,
+  keywords: texts.fr.metadata.siteKeywords,
   openGraph: {
-    title: texts.metadata.siteTitle,
-    description: texts.metadata.siteDescription,
+    title: texts.fr.metadata.siteTitle,
+    description: texts.fr.metadata.siteDescription,
     url: baseUrl,
-    siteName: texts.metadata.authorName,
-    locale: texts.metadata.siteLocale,
-    type: texts.metadata.siteType,
+    siteName: texts.fr.metadata.authorName,
+    locale: texts.fr.metadata.siteLocale,
+    type: texts.fr.metadata.siteType,
     images: [
       {
-        url: `${baseUrl}/api/og?title=${encodeURIComponent(texts.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
+        url: `${baseUrl}/api/og?title=${encodeURIComponent(texts.fr.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
         width: 1200,
         height: 630,
-        alt: texts.metadata.siteTitle,
+        alt: texts.fr.metadata.siteTitle,
       },
     ],
   },
@@ -45,20 +47,20 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: texts.metadata.siteTitle,
+    title: texts.fr.metadata.siteTitle,
     card: 'summary_large_image',
-    description: texts.metadata.siteDescription,
-    creator: texts.metadata.twitterHandle,
+    description: texts.fr.metadata.siteDescription,
+    creator: texts.fr.metadata.twitterHandle,
     images: [
-      `${baseUrl}/api/og?title=${encodeURIComponent(texts.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
+      `${baseUrl}/api/og?title=${encodeURIComponent(texts.fr.metadata.siteTitle)}&subtitle=${encodeURIComponent('Développeur Web3 & IA')}`,
     ],
   },
   verification: {
     google: 'google-site-verification',
   },
-  authors: [{ name: texts.metadata.authorName }],
-  creator: texts.metadata.authorName,
-  category: texts.metadata.siteCategory,
+  authors: [{ name: texts.fr.metadata.authorName }],
+  creator: texts.fr.metadata.authorName,
+  category: texts.fr.metadata.siteCategory,
   alternates: {
     canonical: baseUrl,
   },
@@ -72,17 +74,20 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="min-h-screen bg-slate-950 text-white antialiased selection:bg-cyan-500/70 selection:text-cyan-50">
-        <div className="relative flex min-h-screen flex-col">
-          <div className="flex-1 w-full">
-            <div className="container mx-auto px-0 sm:px-6 lg:px-8">
-              <main className="flex-auto">
-                {children}
-              </main>
+        <LanguageProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <div className="flex-1 w-full">
+              <div className="container mx-auto px-0 sm:px-6 lg:px-8">
+                <main className="flex-auto pb-24 md:pb-0">
+                  {children}
+                </main>
+              </div>
             </div>
+            <Footer />
+            <Navbar />
+            <NavMobile />
           </div>
-          <Footer />
-          <Navbar />
-        </div>
+        </LanguageProvider>
         <Analytics />
         <SpeedInsights />
       </body>

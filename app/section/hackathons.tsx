@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { texts, type Event } from '@/lib/constants'
+import { type Event, getTexts } from '@/lib/constants'
+import { useLanguage } from '@/components/LanguageProvider'
 import { Timeline, TimelineEvent } from '@/ui/timeline'
 import { SparklesText } from '@/ui/sparkles-text'
 import { remark } from 'remark'
 import html from 'remark-html'
 import { useEffect, useState } from 'react'
-
 
 // Fonction pour convertir le Markdown en HTML
 async function markdownToHtml(markdown: string) {
@@ -48,7 +48,10 @@ function MarkdownContent({ content }: { content: string }) {
 }
 
 export function Hackathons() {
-  const timelineEvents: TimelineEvent[] = texts.hackathons.events.map(event => ({
+  const { currentLang } = useLanguage()
+  const t = getTexts(currentLang)
+
+  const timelineEvents: TimelineEvent[] = t.hackathons.events.map(event => ({
     title: event.title,
     date: event.date,
     description: event.description,
@@ -62,7 +65,7 @@ export function Hackathons() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-balance leading-none tracking-tighter">
-            <SparklesText text={texts.hackathons.title} className="text-slate-200" />
+            <SparklesText text={t.hackathons.title} className="text-slate-200" />
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -70,7 +73,7 @@ export function Hackathons() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mt-4 text-slate-400 text-lg"
           >
-            {texts.hackathons.subtitle}
+            {t.hackathons.subtitle}
           </motion.p>
         </div>
 

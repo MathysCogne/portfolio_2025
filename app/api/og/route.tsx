@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     
     // Récupérer les paramètres de l'URL
-    const title = searchParams.get('title') || texts.metadata.siteTitle
+    const title = searchParams.get('title') || texts.fr.metadata.siteTitle
     const subtitle = searchParams.get('subtitle') || 'Développeur Web3 & IA'
     const type = searchParams.get('type') || 'default'
 
