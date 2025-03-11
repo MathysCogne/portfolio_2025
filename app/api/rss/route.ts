@@ -19,7 +19,7 @@ export async function GET() {
       (post) =>
         `<item>
           <title><![CDATA[${post.metadata.title}]]></title>
-          <link>${baseUrl}/blog/${post.slug}</link>
+          <link>${baseUrl}blog/${post.slug}</link>
           <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
           <description><![CDATA[${post.metadata.summary || ''}]]></description>
           <pubDate>${new Date(post.metadata.publishedAt).toUTCString()}</pubDate>
