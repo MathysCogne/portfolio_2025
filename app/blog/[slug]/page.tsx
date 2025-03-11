@@ -71,6 +71,55 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: {
       canonical: `${baseUrl}/blog/${post.slug}`,
     },
+    other: {
+      'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION,
+    },
+    // Ajout des métadonnées structurées Schema.org
+    jsonLd: [{
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description: description,
+      image: ogImage,
+      datePublished: publishedTime,
+      dateModified: publishedTime,
+      author: {
+        '@type': 'Person',
+        name: texts.fr.metadata.authorName,
+        url: baseUrl
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: texts.fr.metadata.authorName,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${baseUrl}/logo.png`
+        }
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${baseUrl}/blog/${post.slug}`
+      },
+      keywords: keywordsString
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Blog',
+          item: `${baseUrl}/blog`
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: title,
+          item: `${baseUrl}/blog/${post.slug}`
+        }
+      ]
+    }]
   };
 }
 
@@ -84,58 +133,73 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <section className="py-24 relative">
+    <article className="py-24 relative">
       {/* Effets de lueur décoratifs */}
-      <div className="absolute -top-20 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-30" />
-      <div className="absolute top-1/3 -right-20 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl opacity-30" />
+      {/* <div className="absolute -top-20 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-30" /> */}
+      {/* <div className="absolute top-1/3 -right-20 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl opacity-30" /> */}
       
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         {/* En-tête de l'article */}
-        <div className="mb-12">
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors mb-6"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="mr-2"
+        <header className="mb-12">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-            Retour aux articles
-          </Link>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="mr-2"
+                aria-hidden="true"
+              >
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              <span>Retour aux articles</span>
+            </Link>
+          </nav>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400 leading-tight tracking-tighter">
             {post.metadata.title}
           </h1>
           
           <div className="flex items-center mt-6 text-sm text-slate-400">
-            <div className="flex items-center justify-center px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-400 text-xs sm:text-sm">
+            <time 
+              dateTime={post.metadata.publishedAt}
+              className="flex items-center justify-center px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-400 text-xs sm:text-sm"
+            >
               {formatDate(post.metadata.publishedAt, true)}
-            </div>
+            </time>
+            {post.metadata.tags && (
+              <div className="ml-4 flex flex-wrap gap-2">
+                {post.metadata.tags.map((tag) => (
+                  <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800/50 text-slate-400">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+        </header>
         
         {/* Image de couverture si disponible */}
         {post.metadata.image && (
-          <div className="relative w-full h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden mb-12 shadow-xl shadow-blue-900/10">
+          <figure className="relative w-full h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden mb-12 shadow-xl shadow-blue-900/10">
             <Image
               src={post.metadata.image}
-              alt={post.metadata.title}
+              alt={`Image de couverture pour l'article : ${post.metadata.title}`}
               fill
               className="object-cover"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-40" />
-          </div>
+          </figure>
         )}
         
         {/* Séparateur décoratif */}
@@ -144,8 +208,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
         </div>
         
         {/* Contenu de l'article */}
-        <article
-          className="prose prose-invert max-w-none
+        <article className="prose prose-invert max-w-none">
+          <div className="prose prose-invert max-w-none
           prose-headings:text-balance
           prose-h1:text-3xl prose-h1:font-bold prose-h1:text-transparent prose-h1:bg-clip-text prose-h1:bg-gradient-to-r prose-h1:from-blue-300 prose-h1:to-violet-300 prose-h1:mt-16 prose-h1:mb-8
           prose-h2:text-2xl prose-h2:font-bold prose-h2:text-white prose-h2:mt-12 prose-h2:mb-6
@@ -166,13 +230,11 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           prose-th:bg-slate-800/50 prose-th:p-3 prose-th:text-left prose-th:font-medium prose-th:text-slate-200 prose-th:border prose-th:border-slate-700
           prose-td:p-3 prose-td:border prose-td:border-slate-800 prose-td:text-slate-300
           prose-figure:my-10 prose-figure:mx-auto
-          prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-slate-400 prose-figcaption:mt-3"
-        >
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-slate-400 prose-figcaption:mt-3" dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
         
-        {/* Pied de page de l'article */}
-        <div className="mt-16 pt-8 border-t border-slate-800">
+        {/* Footer de l'article */}
+        <section className="mt-16 pt-8 border-t border-slate-800">
           <Link 
             href="/blog" 
             className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600/20 to-violet-600/20 hover:from-blue-600/30 hover:to-violet-600/30 text-blue-400 hover:text-blue-300 transition-all border border-blue-500/20 hover:border-blue-500/40"
@@ -189,12 +251,13 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               strokeLinecap="round" 
               strokeLinejoin="round" 
               className="ml-2"
+              aria-hidden="true"
             >
               <path d="m9 18 6-6-6-6"/>
             </svg>
           </Link>
-        </div>
+        </section>
       </div>
-    </section>
+    </article>
   );
 }

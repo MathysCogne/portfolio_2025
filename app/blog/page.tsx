@@ -29,9 +29,6 @@ export default async function Page() {
         </div>
         
         <div className="relative">
-          {/* Effet de lueur décoratif */}
-          <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-30" />
-          <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl opacity-30" />
           
           {/* Contenu du blog */}
           <div className="relative z-10">

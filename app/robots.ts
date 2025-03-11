@@ -9,6 +9,8 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
+        allow: ['/blog/', '/blog/*'],
+        disallow: ['/api/', '/_next/', '/static/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
