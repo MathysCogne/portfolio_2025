@@ -104,6 +104,16 @@ export const Timeline = ({ events }: { events: TimelineEvent[] }) => {
               </div>
               
               <div className="p-4 pt-3 bg-slate-800/50 rounded-xl border border-slate-800 hover:border-slate-700/50 transition-colors">
+                {event.image && (
+                  <div className="relative w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4">
+                    <img
+                      src={event.image}
+                      alt={`Image for ${event.title} | Mathys Cogne-Foucault`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                  </div>
+                )}
                 {event.formattedDescription || <p className="text-slate-300 mb-4">{event.description}</p>}
                 
                 {event.tags && event.tags.length > 0 && (

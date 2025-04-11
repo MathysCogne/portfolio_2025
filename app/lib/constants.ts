@@ -62,6 +62,13 @@ export const texts = {
       title: "Mon Parcours Professionnel",
       items: [
         {
+          company: "XRPL Commons - Cohorte Blockchain & AI",
+          role: "Aquarium Residency",
+          period: "avril 2025 - juillet 2025",
+          logo: "/images/companies/xrpl_commons.jpeg",
+          url: "https://www.xrpl-commons.org/residency"
+        },
+        {
           company: "42Blockchain",
           role: "Membre - Contributeur",
           period: "février 2025 - Présent",
@@ -102,7 +109,7 @@ export const texts = {
       title: "Mon Parcours Académique",
       items: [
         {
-          school: "42",
+          school: "42 Paris",
           degree: "Ingenieur logiciel",
           period: "2024 - 2026",
           logo: "/images/education/42born2code_logo.jpeg",
@@ -249,12 +256,13 @@ export const texts = {
       {
         title: "Paris Blockchain Week",
         date: "Avril 2025",
-        description: "## Hackathon Paris Blockchain Week\n\n **Comming soon** \n\n.\n\n.\n\n.\n\n.",
-        tags: ["XRPL", "Solana", "Web3"],
+        description: "## 🏆 Hackathon Hack The Block - PBW\n\n **1ère place** pour notre projet Sentinel Wallet sur la track XRPL !\n\n Notre idée ? Simple mais puissante : améliorer l’expérience utilisateur sur XRPL et renforcer la sécurité grâce au multi-sign… de façon totalement transparente pour l’utilisateur.\n\nC’est comme ça qu’est né Sentinel Wallet : un agrégateur de wallet XRPL qui intègre un LLM pour interagir on-chain par simple prompt, et permet en un clic de configurer son wallet en dual-sign. \n\n Le second signataire ? Une IA qui analyse les transactions en temps réel pour détecter les scams et schémas frauduleux.",
+        tags: ["XRPL", "IA", "Web3"],
         link: {
-          url: "https://www.parisblockchainweek.com",
-          label: "Site de l'événement"
-        }
+          url: "https://github.com/MathysCogne/hackathon_pbw_sentinel_wallet",
+          label: "Voir le projet"
+        },
+        image: "images/events/pbw-hackathon.jpeg"
       },
       {
         title: "AI Action Summit Hackathon",
@@ -274,7 +282,7 @@ export const texts = {
         link: {
           url: "https://github.com/MathysCogne/hackathon_kiln",
           label: "Voir le projet"
-        }
+        },
       },
     ]
   },
@@ -320,6 +328,13 @@ export const texts = {
         title: "My Professional Journey",
         items: [
           {
+            company: "XRPL Commons - Cohorte Blockchain & AI",
+            role: "Aquarium Residency",
+            period: "April 2025 - July 2025",
+            logo: "/images/companies/xrpl_commons.jpeg",
+            url: "https://www.xrpl-commons.org/residency"
+          },
+          {
             company: "42Blockchain",
             role: "Member - Contributor",
             period: "February 2025 - Present",
@@ -360,7 +375,7 @@ export const texts = {
         title: "My Academic Journey",
         items: [
           {
-            school: "42",
+            school: "42 Paris",
             degree: "Software Engineer",
             period: "2024 - 2026",
             logo: "/images/education/42born2code_logo.jpeg",
@@ -507,12 +522,13 @@ export const texts = {
         {
           title: "Paris Blockchain Week",
           date: "April 2025",
-          description: "## Paris Blockchain Week Hackathon\n\n **Coming soon** \n\n.\n\n.\n\n.\n\n.",
-          tags: ["XRPL", "Solana", "Web3"],
+          description: "## 🏆 Hackathon Hack The Block - PBW\n\n **1st place** for our Sentinel Wallet project on the XRPL track!\n\nOur idea? Simple but powerful: improve the user experience on XRPL and enhance security through multi-sign... completely transparently for the user.\n\nThat's how Sentinel Wallet was born: an XRPL wallet aggregator that integrates an LLM to interact on-chain through simple prompts, and allows users to configure their wallet in dual-sign with one click.\n\nThe second signer? An AI that analyzes transactions in real-time to detect scams and fraudulent schemes.",
+          tags: ["XRPL", "AI", "Web3"],
           link: {
-            url: "https://www.parisblockchainweek.com",
-            label: "Event website"
-          }
+            url: "https://github.com/MathysCogne/hackathon_pbw_sentinel_wallet",
+            label: "View project"
+          },
+          image: "images/events/pbw-hackathon.jpeg"
         },
         {
           title: "AI Action Summit Hackathon",

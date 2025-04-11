@@ -51,11 +51,12 @@ export function Hackathons() {
   const { currentLang } = useLanguage()
   const t = getTexts(currentLang)
 
-  const timelineEvents: TimelineEvent[] = t.hackathons.events.map(event => ({
+  const timelineEvents: TimelineEvent[] = t.hackathons.events.map((event: Event) => ({
     title: event.title,
     date: event.date,
     description: event.description,
     tags: [...event.tags],
+    image: event.image,
     link: event.link,
     formattedDescription: <MarkdownContent content={event.description} />
   }))
