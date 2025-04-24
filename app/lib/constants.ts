@@ -30,6 +30,14 @@ export type Event = {
   }
 }
 
+export type SocialLink = {
+  readonly title: string
+  readonly description: string
+  readonly url: string
+  readonly icon: 'linkedin' | 'github' | 'twitter' | 'phone' | 'globe' | 'calendar'
+  readonly color: string
+}
+
 export const texts = {
   fr: {
   metadata: {
@@ -256,7 +264,7 @@ export const texts = {
       {
         title: "Paris Blockchain Week",
         date: "Avril 2025",
-        description: "## 🏆 Hackathon Hack The Block - PBW\n\n **1ère place** pour notre projet Sentinel Wallet sur la track XRPL !\n\n Notre idée ? Simple mais puissante : améliorer l’expérience utilisateur sur XRPL et renforcer la sécurité grâce au multi-sign… de façon totalement transparente pour l’utilisateur.\n\nC’est comme ça qu’est né Sentinel Wallet : un agrégateur de wallet XRPL qui intègre un LLM pour interagir on-chain par simple prompt, et permet en un clic de configurer son wallet en dual-sign. \n\n Le second signataire ? Une IA qui analyse les transactions en temps réel pour détecter les scams et schémas frauduleux.",
+        description: "## 🏆 Hackathon Hack The Block - PBW\n\n **1ère place** pour notre projet Sentinel Wallet sur la track XRPL !\n\n Notre idée ? Simple mais puissante : améliorer l'expérience utilisateur sur XRPL et renforcer la sécurité grâce au multi-sign... de façon totalement transparente pour l'utilisateur.\n\nC'est comme ça qu'est né Sentinel Wallet : un agrégateur de wallet XRPL qui intègre un LLM pour interagir on-chain par simple prompt, et permet en un clic de configurer son wallet en dual-sign. \n\n Le second signataire ? Une IA qui analyse les transactions en temps réel pour détecter les scams et schémas frauduleux.",
         tags: ["XRPL", "IA", "Web3"],
         link: {
           url: "https://github.com/MathysCogne/hackathon_pbw_sentinel_wallet",
@@ -294,6 +302,47 @@ export const texts = {
       "Concrétisons vos idées",
       "Travaillons ensemble",
       "Créons l'avenir"
+    ]
+  },
+  links: {
+    title: "My Links",
+    subtitle: "Let's connect",
+    items: [
+      {
+        title: "LinkedIn",
+        description: "My professional profile",
+        url: "https://www.linkedin.com/in/mathys-cogne-foucault/",
+        icon: "linkedin",
+        color: "#0077B5"
+      },
+      {
+        title: "GitHub",
+        description: "Check out my open-source projects",
+        url: "https://github.com/MathysCogne",
+        icon: "github",
+        color: "#333333"
+      },
+      {
+        title: "Twitter/X",
+        description: "Follow my tech updates",
+        url: "https://x.com/MattCogne",
+        icon: "twitter",
+        color: "#1DA1F2"
+      },
+      {
+        title: "Website",
+        description: "My personal portfolio",
+        url: "https://www.mathys-cognefoucault.fr/",
+        icon: "globe",
+        color: "#9C27B0"
+      },
+      {
+        title: "Schedule a Meeting",
+        description: "Book a slot in my calendar",
+        url: "https://calendar.app.google/9Btfik6pCrQMSr7s6",
+        icon: "calendar",
+        color: "#FF5722"
+      }
     ]
   }
   },
@@ -560,6 +609,47 @@ export const texts = {
         "Let's bring your ideas to life",
         "Let's work together",
         "Let's create the future"
+      ]
+    },
+    links: {
+      title: "My Links",
+      subtitle: "Let's connect",
+      items: [
+        {
+          title: "LinkedIn",
+          description: "My professional profile",
+          url: "https://www.linkedin.com/in/mathys-cogne-foucault/",
+          icon: "linkedin",
+          color: "#0077B5"
+        },
+        {
+          title: "GitHub",
+          description: "Check out my open-source projects",
+          url: "https://github.com/MathysCogne",
+          icon: "github",
+          color: "#333333"
+        },
+        {
+          title: "Twitter/X",
+          description: "Follow my tech updates",
+          url: "https://x.com/MattCogne",
+          icon: "twitter",
+          color: "#1DA1F2"
+        },
+        {
+          title: "Website",
+          description: "My personal portfolio",
+          url: "https://www.mathys-cognefoucault.fr/",
+          icon: "globe",
+          color: "#9C27B0"
+        },
+        {
+          title: "Schedule a Meeting",
+          description: "Book a slot in my calendar",
+          url: "https://calendar.app.google/9Btfik6pCrQMSr7s6",
+          icon: "calendar",
+          color: "#FF5722"
+        }
       ]
     }
   }
