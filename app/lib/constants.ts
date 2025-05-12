@@ -70,6 +70,13 @@ export const texts = {
       title: "Mon Parcours Professionnel",
       items: [
         {
+          company: "KoVault",
+          role: "Founder",
+          period: "Mars 2025 - Présent",
+          logo: "/images/companies/kovault.svg",
+          url: "https://kovault.xyz"
+        },
+        {
           company: "XRPL Commons - Cohorte Blockchain & AI",
           role: "Aquarium Residency",
           period: "avril 2025 - juillet 2025",
@@ -153,6 +160,28 @@ export const texts = {
     technicalDetails: "Détails Techniques",
     viewMore: "Voir plus",
     items: [
+      {
+        title: "KoVault",
+        description: "A reimagined multi-signature solution for real teams. KoVault is more than a vault - it's your team's AI-enhanced co-signer. We streamline the complexity of multi-signature transactions with a secure, human-readable interface, backed by real-time AI insights.",
+        tags: ["Web3", "Blockchain", "AI", "Multi-sig", "Security"],
+        image: "/images/companies/kovault.svg",
+        links: [
+          { label: "Website", url: "https://kovault.xyz", icon: "globe" },
+          { label: "GitHub", url: "https://github.com/kovault-xyz", icon: "github" }
+        ],
+        expanded: {
+          features: [
+            "Secure and readable interface",
+            "Real-time AI risk analysis",
+            "Human-readable protocols",
+            "Advanced asset protection",
+            "Intelligent multi-signature",
+            "Native XRPL integration",
+            "Real-time transaction monitoring"
+          ],
+          technicalDetails: "KoVault is a next-generation multi-signature solution that combines the power of AI with blockchain security. The platform uses human-readable protocols to translate complex blockchain operations into intuitive formats. AI analyzes transactions in real-time to detect potential risks, while the intelligent multi-signature system enables secure asset management. Developed with a modern architecture and particular attention to user experience, KoVault represents the future of secure digital asset management."
+        }
+      },
       {
         title: "PatcherAI",
         description: "Un builder no-code d'agents IA intuitif avec interface drag and drop. Permet de créer et déployer des agents IA personnalisés sans écrire de code.",
@@ -377,6 +406,13 @@ export const texts = {
         title: "My Professional Journey",
         items: [
           {
+            company: "KoVault",
+            role: "Founder",
+            period: "Mars 2025 - Présent",
+            logo: "/images/companies/kovault.svg",
+            url: "https://kovault.xyz"
+          },
+          {
             company: "XRPL Commons - Cohorte Blockchain & AI",
             role: "Aquarium Residency",
             period: "April 2025 - July 2025",
@@ -460,6 +496,28 @@ export const texts = {
       technicalDetails: "Technical Details",
       viewMore: "View more",
       items: [
+        {
+          title: "KoVault",
+          description: "A reimagined multi-signature solution for real teams. KoVault is more than a vault - it's your team's AI-enhanced co-signer. We streamline the complexity of multi-signature transactions with a secure, human-readable interface, backed by real-time AI insights.",
+          tags: ["Web3", "Blockchain", "AI", "Multi-sig", "Security"],
+          image: "/images/companies/kovault.svg",
+          links: [
+            { label: "Website", url: "https://kovault.xyz", icon: "globe" },
+            { label: "GitHub", url: "https://github.com/kovault-xyz", icon: "github" }
+          ],
+          expanded: {
+            features: [
+              "Secure and readable interface",
+              "Real-time AI risk analysis",
+              "Human-readable protocols",
+              "Advanced asset protection",
+              "Intelligent multi-signature",
+              "Native XRPL integration",
+              "Real-time transaction monitoring"
+            ],
+            technicalDetails: "KoVault is a next-generation multi-signature solution that combines the power of AI with blockchain security. The platform uses human-readable protocols to translate complex blockchain operations into intuitive formats. AI analyzes transactions in real-time to detect potential risks, while the intelligent multi-signature system enables secure asset management. Developed with a modern architecture and particular attention to user experience, KoVault represents the future of secure digital asset management."
+          }
+        },
         {
           title: "PatcherAI",
           description: "An intuitive no-code AI agent builder with drag and drop interface. Create and deploy custom AI agents without writing code.",
