@@ -85,7 +85,7 @@ export const texts = {
         },
         {
           company: "42Blockchain",
-          role: "Membre - Contributeur",
+          role: "Core Member",
           period: "février 2025 - Présent",
           logo: "/images/companies/42blockchain.svg",
           url: "https://42blockchain.com/"
@@ -93,7 +93,7 @@ export const texts = {
         {
           company: "Café Joyeux",
           role: "Superviseur",
-          period: "novembre 2024 - Présent",
+          period: "novembre 2024 - avril 2025",
           logo: "/images/companies/cafe-joyeux.jpeg",
           url: "https://www.cafejoyeux.com"
         },
@@ -291,6 +291,17 @@ export const texts = {
         }
       },
       {
+        title: "HAKS Hackathon",
+        date: "Mai 2025",
+        description: "## 🏆 HAKS Hackathon - XRPL Commons\n\n **1ère place** pour ma startup KoVault !\n\n Unlock secure multi-signature workflows with real-time AI co-signing and full clear-signing.",
+        tags: ["XRPL", "IA", "Web3"],
+        link: {
+          url: "https://www.linkedin.com/company/kovault/",
+          label: "LinkedIn de KoVault"
+        },
+        image: "images/events/haks-hackathon.jpeg"
+      },
+      {
         title: "Paris Blockchain Week",
         date: "Avril 2025",
         description: "## 🏆 Hackathon Hack The Block - PBW\n\n **1ère place** pour notre projet Sentinel Wallet sur la track XRPL !\n\n Notre idée ? Simple mais puissante : améliorer l'expérience utilisateur sur XRPL et renforcer la sécurité grâce au multi-sign... de façon totalement transparente pour l'utilisateur.\n\nC'est comme ça qu'est né Sentinel Wallet : un agrégateur de wallet XRPL qui intègre un LLM pour interagir on-chain par simple prompt, et permet en un clic de configurer son wallet en dual-sign. \n\n Le second signataire ? Une IA qui analyse les transactions en temps réel pour détecter les scams et schémas frauduleux.",
@@ -429,7 +440,7 @@ export const texts = {
           {
             company: "Café Joyeux",
             role: "Supervisor",
-            period: "November 2024 - Present",
+            period: "November 2024 - April 2025",
             logo: "/images/companies/cafe-joyeux.jpeg",
             url: "https://www.cafejoyeux.com"
           },
@@ -625,6 +636,17 @@ export const texts = {
             url: "https://ethglobal.com/events/cannes",
             label: "Event website"
           }
+        },
+        {
+          title: "HAKS Hackathon",
+          date: "May 2025",
+          description: "## 🏆 HAKS Hackathon - XRPL Commons\n\n **1st place** for my startup KoVault !\n\n Unlock secure multi-signature workflows with real-time AI co-signing and full clear-signing.",
+          tags: ["IA", "Web3"],
+          link: {
+            url: "https://www.linkedin.com/company/kovault/",
+            label: "LinkedIn of KoVault"
+          },
+          image: "images/events/haks-hackathon.jpeg"
         },
         {
           title: "Paris Blockchain Week",

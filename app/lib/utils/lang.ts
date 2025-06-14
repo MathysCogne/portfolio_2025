@@ -3,7 +3,7 @@
 export type Language = 'fr' | 'en'
 
 const LANG_STORAGE_KEY = 'preferred_language'
-const DEFAULT_LANGUAGE: Language = 'fr'
+const DEFAULT_LANGUAGE: Language = 'en'
 
 export function getLang(): Language {
   if (typeof window === 'undefined') return DEFAULT_LANGUAGE
