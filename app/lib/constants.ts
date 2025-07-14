@@ -283,11 +283,22 @@ export const texts = {
       {
         title: "Hackathon ETHGlobal Cannes",
         date: "Juillet 2025",
-        description: "## ETH Global Cannes\n\n **Comming soon** \n\n.\n\n.\n\n.\n\n.",
-        tags: ["ETH", "Web3"],
+        description: "## 🏆 Hackathon ETHGlobal Cannes - Payce\n\n **Double victoire !**\n\n🥇 **Mantle - Best Finance App 1st place**\n🥇 **Privy - Best App Using Stablecoin**\n\nEn 48 heures, nous avons créé **Payce** : une application pour envoyer des USDC partout dans le monde avec un simple numéro de téléphone, sans aucune friction. Pas de wallet, pas de seed phrase, pas de frais de gaz à avancer pour le destinataire.\n\nUn simple SMS avec un lien magique, et les fonds sont disponibles instantanément sur une carte de paiement virtuelle compatible Apple Pay, ou transférables vers un wallet externe.",
+        tags: ["ETH", "Web3", "Privy", "Mantle", "USDC", "Account Abstraction"],
         link: {
-          url: "https://ethglobal.com/events/cannes",
-          label: "Site de l'événement"
+          url: "https://lnkd.in/e3qXdxZx",
+          label: "Voir la démo"
+        },
+        image: "images/events/ethgcannes.jpg"
+      },
+      {
+        title: "Hacking Paris",
+        date: "Juillet 2025",
+        description: "## Hackathon Hacking Paris - Ownible\n\n **Chiliz 🌶️**\n\nNous avons développé **Ownible**, une plateforme décentralisée sur la Chiliz Chain pour tokeniser des actifs du monde réel (RWA) issus du sport et du divertissement. Elle permet aux fans d'acheter, d'échanger et de tirer des revenus d'actifs culturels comme des royalties musicales ou des collections de merchandising, transformant la culture en une nouvelle classe d'actifs accessible.",
+        tags: ["Chiliz", "RWA", "DeFi", "Solidity", "React", "Blockchain"],
+        link: {
+          url: "https://devfolio.co/projects/ownible-0f38",
+          label: "Voir sur Devfolio"
         }
       },
       {
@@ -630,18 +641,29 @@ export const texts = {
         {
           title: "ETHGlobal Cannes Hackathon",
           date: "July 2025",
-          description: "## ETH Global Cannes\n\n **Coming soon** \n\n.\n\n.\n\n.\n\n.",
-          tags: ["ETH", "Web3"],
+          description: "## 🏆  ETHGlobal Cannes - Payce\n\n **Double win!**\n\n🥇 **Mantle - Best Finance App 1st place**\n🥇 **Privy - Best App Using Stablecoin**\n\nWe built **Payce** in 48 hours. It's an app that lets you send USDC to anyone, anywhere, just with their phone number. No wallet, no seed phrase, no gas tokens needed.\n\nThe recipient gets an SMS with a magic link, and the money is ready to be used with Apple Pay or transferred to a wallet. We made the UX as simple and efficient as possible.",
+          tags: ["ETH", "Web3", "Privy", "Mantle", "USDC", "Account Abstraction"],
           link: {
-            url: "https://ethglobal.com/events/cannes",
-            label: "Event website"
+            url: "https://lnkd.in/e3qXdxZx",
+            label: "View Demo"
+          },
+          image: "images/events/ethgcannes.jpg"
+        },
+        {
+          title: "Hacking Paris Hackathon",
+          date: "July 2025",
+          description: "## Hacking Paris - Ownible\n\n **Chiliz 🌶️**\n\nWe built **Ownible**, a decentralized platform on the Chiliz Chain to tokenize Real-World Assets (RWAs) from sports and entertainment. It allows fans to buy, trade, and earn from cultural assets like music royalties or merch drops, turning culture into a new, accessible asset class.",
+          tags: ["Chiliz", "RWA", "DeFi", "Solidity", "React", "Blockchain"],
+          link: {
+            url: "https://devfolio.co/projects/ownible-0f38",
+            label: "View Demo"
           }
         },
         {
           title: "HAKS Hackathon",
           date: "May 2025",
           description: "## 🏆 HAKS Hackathon - XRPL Commons\n\n **1st place** for my startup KoVault !\n\n Unlock secure multi-signature workflows with real-time AI co-signing and full clear-signing.",
-          tags: ["IA", "Web3"],
+          tags: ["XRPL", "AI", "Web3"],
           link: {
             url: "https://www.linkedin.com/company/kovault/",
             label: "LinkedIn of KoVault"
