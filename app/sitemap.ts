@@ -1,6 +1,6 @@
 import { getBlogPosts } from '@/blog/_lib/blog'
 
-export const baseUrl = 'https://www.mathys-cognefoucault.fr/'
+export const baseUrl = 'https://www.mathys-cognefoucault.fr'
 
 // Force le rendu statique de cette route
 export const dynamic = 'force-static'
@@ -23,5 +23,15 @@ export default async function sitemap() {
     priority: route === '' ? 1.0 : 0.9
   }))
 
-  return [...routes, ...blogs]
+  // Add the additional link to the sitemap
+  let additionalLinks = [
+    {
+      url: 'https://link.mathys-cognefoucault.fr',
+      lastModified: new Date().toISOString().split('T')[0],
+      changeFrequency: 'weekly',
+      priority: 0.7
+    }
+  ]
+
+  return [...routes, ...blogs, ...additionalLinks]
 } 

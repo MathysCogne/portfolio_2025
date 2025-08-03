@@ -9,7 +9,7 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
-        allow: ['/blog/', '/blog/*'],
+        allow: '/',
         disallow: ['/api/', '/_next/', '/static/'],
       },
     ],
