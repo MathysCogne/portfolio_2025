@@ -51,10 +51,10 @@ export const texts = {
     siteCategory: "Technology"
   },
   hero: {
-    title: "Développeur Web3",
+    title: "Web3 Developer",
     name: "Mathys Cogné-Foucault",
-    description1: "Étudiant à l'École 42, passionné par les hackathons et les défis innovants. La recherche de solutions créatives et l'exploration des frontières technologiques.",
-    description2: "Spécialisé en Web3 et IA, je m'épanouis dans l'univers de la blockchain, de l'intelligence artificielle et de la cybersécurité."
+    description1: "Fullstack Blockchain Developer - VP @42Blockchain - Dev at @EatwithNomu",
+    description2: "I build products at the crossroads of Web3, AI, and decentralized infrastructures."
   },
   notFound: {
     title: "404",
@@ -70,11 +70,11 @@ export const texts = {
       title: "Mon Parcours Professionnel",
       items: [
         {
-          company: "KoVault",
-          role: "Founder",
-          period: "Mars 2025 - Présent",
-          logo: "/images/companies/kovault.svg",
-          url: "https://kovault.xyz"
+          company: "Nomu",
+          role: "Fullstack Blockchain Developer",
+          period: "Août 2025 - Présent",
+          logo: "/images/companies/nomu.svg",
+          url: "https://nomu.dev"
         },
         {
           company: "XRPL Commons - Cohorte Blockchain & AI",
@@ -411,8 +411,8 @@ export const texts = {
     hero: {
       title: "Web3 Developer",
       name: "Mathys Cogné-Foucault",
-      description1: "42 School student, passionate about hackathons and innovative challenges. Always seeking creative solutions and exploring technological boundaries.",
-      description2: "Specialized in Web3 and AI, I thrive in the world of blockchain, artificial intelligence, and cybersecurity."
+      description1: "Fullstack Blockchain Developer - VP @42Blockchain - Dev at @EatwithNomu",
+      description2: "I build products at the crossroads of Web3, AI, and decentralized infrastructures."
     },
     notFound: {
       title: "404",
@@ -428,11 +428,11 @@ export const texts = {
         title: "My Professional Journey",
         items: [
           {
-            company: "KoVault",
-            role: "Founder",
-            period: "Mars 2025 - Présent",
-            logo: "/images/companies/kovault.svg",
-            url: "https://kovault.xyz"
+            company: "Nomu",
+            role: "Fullstack Blockchain Developer",
+            period: "August 2025 - Present",
+            logo: "/images/companies/nomu.svg",
+            url: "https://nomu.dev"
           },
           {
             company: "XRPL Commons - Cohorte Blockchain & AI",

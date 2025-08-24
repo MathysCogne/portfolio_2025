@@ -14,12 +14,13 @@ export default function Page() {
       <LazySection>
         <Resume />
       </LazySection>
-      {/* <LazySection> */}
-        <Projects />
-      {/* </LazySection> */}
       <LazySection>
         <Hackathons />
       </LazySection>
+      {/* <LazySection> */}
+        <Projects />
+      {/* </LazySection> */}
+
     </section>
   )
 }
